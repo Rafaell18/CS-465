@@ -3,6 +3,7 @@ import { CurrencyPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 import { Trip } from '../data/trips';
+import { Authentication } from '../services/authentication';
 
 @Component({
   selector: 'app-trip-card',
@@ -12,4 +13,8 @@ import { Trip } from '../data/trips';
 })
 export class TripCard {
   @Input() trip!: Trip;
+
+  constructor(
+    public authenticationService: Authentication
+  ) {}
 }

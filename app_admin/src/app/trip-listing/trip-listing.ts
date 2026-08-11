@@ -9,6 +9,7 @@ import { RouterLink } from '@angular/router';
 import { Trip } from '../data/trips';
 import { TripData } from '../services/trip-data';
 import { TripCard } from '../trip-card/trip-card';
+import { Authentication } from '../services/authentication';
 
 @Component({
   selector: 'app-trip-listing',
@@ -21,7 +22,8 @@ export class TripListing implements OnInit {
 
   constructor(
     private tripDataService: TripData,
-    private changeDetector: ChangeDetectorRef
+    private changeDetector: ChangeDetectorRef,
+    public authenticationService: Authentication
   ) {}
 
   ngOnInit(): void {
