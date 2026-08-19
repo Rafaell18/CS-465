@@ -1,6 +1,6 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
-const User = mongoose.model('User');
+const User = mongoose.model('users');
 
 const register = async (req, res) => {
   if (!req.body.name || !req.body.email || !req.body.password) {
@@ -18,7 +18,7 @@ const register = async (req, res) => {
   try {
     await user.save();
 
-    const token = user.generateJwt();
+    const token = user.generateJWT();
 
     res.status(200).json({
       token
@@ -41,7 +41,7 @@ const login = (req, res) => {
     }
 
     if (user) {
-      const token = user.generateJwt();
+      const token = user.generateJWT();
 
       return res.status(200).json({
         token
